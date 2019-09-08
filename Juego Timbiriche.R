@@ -31,7 +31,7 @@ crearDfMalla = function(n){
   
   df = data.frame(X0,X1,Y0,Y1,izq,aba,der,arr,Vizq,Vaba,Vder,Varr,total)
   
-  #ac· ingresamos las coordenadas de todos los cuadrados de la malla
+  #ac√° ingresamos las coordenadas de todos los cuadrados de la malla
   cuadrado = 1
   for (i in 1:n) { #columnas
     for (j in 1:n) { #cuadros en columna i
@@ -44,8 +44,8 @@ crearDfMalla = function(n){
     }
   }
   
-  #ac· ingresamos los vecinos de todos los cuadrados de la malla
-  ##ac· creamos el marco porque son especiales
+  #ac√° ingresamos los vecinos de todos los cuadrados de la malla
+  ##ac√° creamos el marco porque son especiales
   marco = vector(mode = "numeric",length = 4*n - 4)
   
   indice = 1
@@ -86,7 +86,7 @@ crearDfMalla = function(n){
   }
   
   
-  ##Hasta ac· se llena el marco
+  ##Hasta ac√° se llena el marco
 
   for (i in 1:(n*n)) {
     if (is.element(el = i, set = marco)) {
@@ -126,7 +126,7 @@ crearDfMalla = function(n){
       df[i,]$Varr = i+1
     }
   }
-  #Hasta ac· se llenan los vecinos
+  #Hasta ac√° se llenan los vecinos
   
   
   return(df)
@@ -212,10 +212,10 @@ trazarUsuario = function(){
       
       cuadrado = n*(x1-1)+y1
       
-      ##Condicional de rayar solo si est· cerca de una linea
+      ##Condicional de rayar solo si est√° cerca de una linea
       if (minimo <= 0.3){
         
-        ##Condicionales de rayar el lado minimo solo si no est· rayado
+        ##Condicionales de rayar el lado minimo solo si no est√° rayado
         if (minimo == izquierda && df[cuadrado,]$izq == 0) {
           segments(x0,y0,x0,y1, col = "blue", lwd = 3)
           df <<- actualizarDf(df, cuadrado,"izq")
@@ -345,7 +345,7 @@ trazarComputador = function(){
     #Revisaremos cada cuadrado para saber cual es la mejor opcion 
     for (cuadrado in cuadrados2) {
       
-      #Todos son if porque queremos saber tambien cu·l ser· el mejor lado a rayar
+      #Todos son if porque queremos saber tambien cu√°l ser√° el mejor lado a rayar
       if (dfOriginal[cuadrado,]$izq == 0) {
         dfModificado = actualizarDf(dfOriginal,cuadrado,"izq")
         cuadrosTotales = cuadrosCompletos(dfModificado)
@@ -388,12 +388,12 @@ trazarComputador = function(){
       }
     }
     
-    #Si dos o mas cuadrados son optimos devuelve el primero que se encontrÛ
+    #Si dos o mas cuadrados son optimos devuelve el primero que se encontr√≥
     return(list(mejorCuadrado = mejorCuadrado,mejorLado = mejorLado))
   }
   
   
-  #esto nos regresa el n˙mero del cuadrado que tiene tres segmentos rayados
+  #esto nos regresa el n√∫mero del cuadrado que tiene tres segmentos rayados
   cuadrado = match(3,df$total)
   if (!is.na(cuadrado)) {
     if (df[cuadrado,]$izq == 0) {
@@ -421,7 +421,7 @@ trazarComputador = function(){
         cuadrosCompu <<- cuadrosCompu + 1
       }
     }
-    return(TRUE) #retorna true ya que completÛ un cuadro
+    return(TRUE) #retorna true ya que complet√≥ un cuadro
   }
   
   cuadrados0 = which(df$total %in% 0)
@@ -491,7 +491,7 @@ trazarComputador = function(){
     }
   }
 
-  #El computador escoge el cuadro de 2 segmentos que implique menos daÒo para Èl
+  #El computador escoge el cuadro de 2 segmentos que implique menos da√±o para √©l
   cuadrados2 = which(df$total %in% 2)
   listaMejor2 = mejor2(df,cuadrados2)
   
@@ -516,9 +516,9 @@ trazarComputador = function(){
   
 }
 
-#AC¡ INICIA EL MAIN
+#AC√Å INICIA EL MAIN
 #Para crear malla nxn
-n <<- readline(prompt="Ingrese la dimensiÛn de la matriz cuadrada: ")
+n <<- readline(prompt="Ingrese la dimensi√≥n de la matriz cuadrada: ")
 n = as.integer(n)
 
 #jugador = 0 : computador
@@ -565,7 +565,7 @@ while(!mallaLlena(df)){
 }
 
 print(paste("El computador obtuvo: ",cuadrosCompu))
-print(paste("T˙ obtuviste: ",cuadrosUsu))
+print(paste("T√∫ obtuviste: ",cuadrosUsu))
 if (cuadrosUsu > cuadrosCompu) {
   print("GANASTE")
 }else if (cuadrosUsu < cuadrosCompu) {
